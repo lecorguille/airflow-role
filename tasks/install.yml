@@ -29,10 +29,9 @@
     mode: 0644
 
 - name: Airflow | Installing dependencies
-  apt:
-    pkg: "{{ airflow_required_libs }}"
+  package:
+    name: "{{ airflow_required_libs }}"
     state: present
-    update_cache: true
 
 # See https://airflow.apache.org/docs/apache-airflow/stable/installation.html#installation-tools
 - name: Airflow | Install pip "{{ airflow_pip_version }}" version
