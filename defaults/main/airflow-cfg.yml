@@ -52,8 +52,8 @@ airflow_lazy_load_plugins: True
 airflow_lazy_discover_providers: True
 airflow_max_db_retries: 3
 airflow_core_hide_sensitive_var_conn_fields: True
-
-airflow_non_pooled_task_slot_count: 128
+airflow_core_sensitive_var_conn_names:
+airflow_core_default_pool_task_slot_count: 128
 
 # [logging]
 airflow_logs_folder: /var/log/airflow
