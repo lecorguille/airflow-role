@@ -212,6 +212,15 @@ max_db_retries = {{ airflow_max_db_retries }}
 # (Connection passwords are always hidden in logs)
 hide_sensitive_var_conn_fields = {{ airflow_core_hide_sensitive_var_conn_fields }}
 
+# A comma-separated list of extra sensitive keywords to look for in variables names or connection's
+# extra JSON.
+sensitive_var_conn_names = {{ airflow_core_sensitive_var_conn_names }}
+
+# Task Slot counts for ``default_pool``. This setting would not have any effect in an existing
+# deployment where the ``default_pool`` is already created. For existing deployments, users can
+# change the number of slots using Webserver, API or the CLI
+default_pool_task_slot_count = {{ airflow_core_default_pool_task_slot_count }}
+
 [logging]
 # The folder where airflow should store its log files
 # This path must be absolute
@@ -894,10 +903,6 @@ keytab = {{ airflow_kerberos_keytab }}
 
 [github_enterprise]
 api_rev = {{ airflow_github_enterprise_api_rev }}
-
-[admin]
-# A comma-separated list of sensitive keywords to look for in variables names.
-sensitive_variable_fields = {{ airflow_admin_sensitive_variable_fields }}
 
 [elasticsearch]
 # Elasticsearch host
