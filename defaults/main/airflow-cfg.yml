@@ -51,6 +51,7 @@ airflow_xcom_backend: airflow.models.xcom.BaseXCom
 airflow_lazy_load_plugins: True
 airflow_lazy_discover_providers: True
 airflow_max_db_retries: 3
+airflow_core_hide_sensitive_var_conn_fields: True
 
 airflow_non_pooled_task_slot_count: 128
 
@@ -123,6 +124,7 @@ airflow_operator_default_cpus: 1
 airflow_operator_default_ram: 512
 airflow_operator_default_disk: 512
 airflow_operator_default_gpus: 0
+airflow_operators_default_queue: default
 airflow_allow_illegal_arguments: False
 
 # [hive]
@@ -214,7 +216,6 @@ airflow_celery_worker_log_server_port: 8793
 airflow_celery_worker_umask: 0o077
 airflow_celery_broker_url: sqla+mysql://airflow:airflow@localhost:3306/airflow
 airflow_celery_result_backend: db+mysql://airflow:airflow@localhost:3306/airflow
-airflow_celery_default_queue: default
 airflow_celery_sync_parallelism: 0
 airflow_celery_config_options: airflow.config_templates.default_celery.DEFAULT_CELERY_CONFIG
 airflow_celery_ssl_active: False
@@ -283,7 +284,6 @@ airflow_kerberos_keytab: airflow.keytab
 airflow_github_enterprise_api_rev: v3
 
 # [admin]
-airflow_admin_hide_sensitive_variable_fields: True
 airflow_admin_sensitive_variable_fields:
 airflow_admin_variables: []
 #   - key: bucket_name

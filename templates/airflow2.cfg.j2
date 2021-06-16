@@ -207,6 +207,11 @@ lazy_discover_providers = {{ airflow_lazy_discover_providers }}
 # Currently it is only used in ``DagFileProcessor.process_file`` to retry ``dagbag.sync_to_db``.
 max_db_retries = {{ airflow_max_db_retries }}
 
+# Hide sensitive Variables or Connection extra json keys from UI and task logs when set to True
+#
+# (Connection passwords are always hidden in logs)
+hide_sensitive_var_conn_fields = {{ airflow_core_hide_sensitive_var_conn_fields }}
+
 [logging]
 # The folder where airflow should store its log files
 # This path must be absolute
@@ -397,6 +402,9 @@ default_cpus = {{ airflow_operator_default_cpus }}
 default_ram = {{ airflow_operator_default_ram }}
 default_disk = {{ airflow_operator_default_disk }}
 default_gpus = {{ airflow_operator_default_gpus }}
+
+# Default queue that tasks get assigned to and that worker listen on.
+default_queue = {{ airflow_operators_default_queue }}
 
 # Is allowed to pass additional/unused arguments (args, kwargs) to the BaseOperator operator.
 # If set to False, an exception will be thrown, otherwise only the console message will be displayed.
@@ -706,9 +714,6 @@ flower_port = {{ airflow_flower_port }}
 # Example: flower_basic_auth = user1:password1,user2:password2
 flower_basic_auth = {{ airflow_flower_basic_auth }}
 
-# Default queue that tasks get assigned to and that worker listen on.
-default_queue = {{ airflow_celery_default_queue }}
-
 # How many processes CeleryExecutor uses to sync task state.
 # 0 means to use max(1, number of cores - 1) processes.
 sync_parallelism = {{ airflow_celery_sync_parallelism }}
@@ -891,9 +896,6 @@ keytab = {{ airflow_kerberos_keytab }}
 api_rev = {{ airflow_github_enterprise_api_rev }}
 
 [admin]
-# UI to hide sensitive variable fields when set to True
-hide_sensitive_variable_fields = {{ airflow_admin_hide_sensitive_variable_fields }}
-
 # A comma-separated list of sensitive keywords to look for in variables names.
 sensitive_variable_fields = {{ airflow_admin_sensitive_variable_fields }}
 
