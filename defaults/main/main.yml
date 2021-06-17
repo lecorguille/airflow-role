@@ -135,6 +135,7 @@ airflow_required_libs: "{{ airflow_default_required_libs + airflow_additional_re
 # Owner
 airflow_user: airflow
 airflow_group: airflow
+check_airflow_user_and_group: True 
 
 # Admin user
 airflow_admin_users:
