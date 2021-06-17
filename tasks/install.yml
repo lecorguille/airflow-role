@@ -4,6 +4,7 @@
   group:
     name: "{{ airflow_group }}"
   become: true
+  when: check_airflow_user_and_group
 
 - name: Airflow | Ensure Airflow user
   user:
@@ -13,6 +14,7 @@
     shell: /usr/sbin/nologin
     createhome: false
   become: true
+  when: check_airflow_user_and_group
 
 - name: Airflow | Ensure airflow skeleton paths
   file:
